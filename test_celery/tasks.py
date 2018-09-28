@@ -16,12 +16,11 @@ conn = psycopg2.connect(
     password="postgres"
 )
 
-# create a cursor
-cur = conn.cursor()
-
 
 @app.task(bind=True, default_retry_delay=10)
 def hello(self, i):
+    # create a cursor
+    cur = conn.cursor()
     # execute a statement
     cur.execute('SELECT version()')
 

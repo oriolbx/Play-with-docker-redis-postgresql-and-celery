@@ -4,4 +4,3 @@ ADD ./test_celery/ /app/test_celery
 WORKDIR /app/
 RUN pip install -r requirements.txt
 RUN pip install --upgrade https://github.com/celery/celery/tarball/master
-ENTRYPOINT celery -A test_celery worker --concurrency=4 --loglevel=info
